@@ -14,7 +14,8 @@ cnx = mysql.connector.connect(**config)
 cursor = cnx.cursor()
 cursor.execute("select symbol,name FROM tbl_stock");
 #for symbol,name in cursor:
-prices=ystockquote.get_historical_prices('600993', '1990-01-01', datetime.today())
+#if 600  append .ss    300 and 000 .sz
+prices=ystockquote.get_historical_prices('600993.sz', '1990-01-01', datetime.today().strftime('%Y-%m-%d'))
 for date in prices.keys():
         open=(float(prices[date]['Open']))
         high=(float(prices[date]['High']))
