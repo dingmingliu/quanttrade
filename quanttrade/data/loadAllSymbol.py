@@ -14,7 +14,7 @@ sql='insert into tbl_stock(symbol,name) values(%s,%s)'
 try:
     list_of_all_the_lines = file_object.readlines( )
     for line in list_of_all_the_lines:
-        data=(line[2:8],line[9:])
+        data=(line[2:8],line[9:].strip('\n'))
         print(data)
         cursor.execute(sql,data);
         cnx.commit();
