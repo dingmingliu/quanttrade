@@ -8,11 +8,12 @@ def downloadHistorical():
     y = YahooFinance()
     y.downAllStock()
 def startSchedule():
-    #scheduler.add_job(downloadHistorical, 'cron', day_of_week='0-4', hour='17',id='downloadHistorical')
-    scheduler.add_job(downloadHistorical,day_of_week='mon-fri')
+    scheduler.add_job(downloadHistorical, 'cron', day_of_week='0-4', hour='10',minute='29')
+    #scheduler.add_job(downloadHistorical,day_of_week='mon-fri')
     scheduler.start()
 
 #startSchedule()
-downloadHistorical()
+if(__name__=='__main__'):
+    startSchedule()
 
 
