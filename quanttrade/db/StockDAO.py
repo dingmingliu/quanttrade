@@ -1,4 +1,5 @@
 __author__ = 'tyler'
+#coding=UTF8
 import mysql
 from mysql import connector
 from config import *

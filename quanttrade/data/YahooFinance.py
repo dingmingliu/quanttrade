@@ -1,5 +1,5 @@
 from data.YahooDLThread import YahooDLThread
-import  queue
+import  Queue
 __author__ = 'tyler'
 
 from db.StockDAO import StockDAO
@@ -11,7 +11,7 @@ logger = logging.getLogger("example02")
 
 class YahooFinance(object):
     def __init__(self):
-        self.q=queue.Queue()
+        self.q=Queue.Queue()
         self.stockDao= StockDAO()
     def downAllStock(self):
         allSymbol=self.stockDao.getAllSymbols()

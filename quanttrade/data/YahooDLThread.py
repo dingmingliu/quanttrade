@@ -1,8 +1,9 @@
 __author__ = 'tyler'
+#coding=UTF8
 import threading
 import logging,os
 import ystockquote,datetime
-from urllib.error import HTTPError
+from urllib2 import HTTPError
 from mysql.connector.errors import DataError
 from db.StockDAO import StockDAO
 import logging.config
