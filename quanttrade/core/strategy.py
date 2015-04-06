@@ -23,4 +23,5 @@ class SMAStrategy(Strategy):
         short_avg=pd.rolling_meam(self.data,short)
         long_avg=pd.rolling_meam(self.data,long)
     def run(self):
+        #if cross order
         pass
