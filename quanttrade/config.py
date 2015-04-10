@@ -1,7 +1,7 @@
 __author__ = 'tyler'
 db_config={'user' : 'root',
-        'password' : 'root',
+        'passwd' : 'root',
         'host' : 'localhost',
-        'database':'quanttrade',
+        'db':'quanttrade',
         'charset':'utf8'
         }

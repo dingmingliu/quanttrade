@@ -11,6 +11,8 @@ class Strategy(object):
     _last_fee = cy.declare(cy.double)
     def run(self):
         pass
+    def setup(self,data):
+        self.data=data
     @property
     def values(self):
         if self.root.stale:
@@ -20,8 +22,16 @@ class Strategy(object):
 
 class SMAStrategy(Strategy):
     def __init__(self,short,long):
-        short_avg=pd.rolling_meam(self.data,short)
-        long_avg=pd.rolling_meam(self.data,long)
+        self.short=short
+        self.long=long
     def run(self):
-        #if cross order
-        pass
+        short_avg=pd.rolling_mean(self.data,self.short)
+        long_avg=pd.rolling_meam(self.data,self.long)
+        print(short_avg)
+        for day in self.data.index:
+            pass
+        print(self.data[day])
+        '''if(self.short_avg[]>self.long_avg):
+            pass
+        else:
+            pass'''

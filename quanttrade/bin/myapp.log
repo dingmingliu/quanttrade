@@ -1,10 +1,30 @@
-Thu, 02 Apr 2015 22:18:20 base.py[line:349] INFO Adding job tentatively -- it will be properly scheduled when the scheduler starts
-Thu, 02 Apr 2015 22:18:20 base.py[line:743] INFO Added job "downloadHistorical" to job store "default"
-Thu, 02 Apr 2015 22:18:20 base.py[line:132] INFO Scheduler started
-Thu, 02 Apr 2015 22:18:20 base.py[line:795] DEBUG Looking for jobs to run
-Thu, 02 Apr 2015 22:18:20 base.py[line:840] DEBUG Next wakeup is due at 2015-04-03 10:29:00+08:00 (in 43839.018000 seconds)
-Sat, 04 Apr 2015 08:59:42 base.py[line:349] INFO Adding job tentatively -- it will be properly scheduled when the scheduler starts
-Sat, 04 Apr 2015 08:59:42 base.py[line:743] INFO Added job "downloadHistorical" to job store "default"
-Sat, 04 Apr 2015 08:59:42 base.py[line:132] INFO Scheduler started
-Sat, 04 Apr 2015 08:59:42 base.py[line:795] DEBUG Looking for jobs to run
-Sat, 04 Apr 2015 08:59:42 base.py[line:840] DEBUG Next wakeup is due at 2015-04-06 10:29:00+08:00 (in 178157.022000 seconds)
+Thu, 02 Apr 2015 10:28:07 base.py[line:349] INFO Adding job tentatively -- it will be properly scheduled when the scheduler starts
+Thu, 02 Apr 2015 10:28:07 base.py[line:743] INFO Added job "downloadHistorical" to job store "default"
+Thu, 02 Apr 2015 10:28:07 base.py[line:132] INFO Scheduler started
+Thu, 02 Apr 2015 10:28:07 base.py[line:795] DEBUG Looking for jobs to run
+Thu, 02 Apr 2015 10:28:07 base.py[line:840] DEBUG Next wakeup is due at 2015-04-03 10:28:00+08:00 (in 86392.137623 seconds)
+Thu, 02 Apr 2015 10:28:24 base.py[line:349] INFO Adding job tentatively -- it will be properly scheduled when the scheduler starts
+Thu, 02 Apr 2015 10:28:24 base.py[line:743] INFO Added job "downloadHistorical" to job store "default"
+Thu, 02 Apr 2015 10:28:24 base.py[line:132] INFO Scheduler started
+Thu, 02 Apr 2015 10:28:24 base.py[line:795] DEBUG Looking for jobs to run
+Thu, 02 Apr 2015 10:28:24 base.py[line:840] DEBUG Next wakeup is due at 2015-04-02 10:29:00+08:00 (in 35.909793 seconds)
+Thu, 02 Apr 2015 10:29:00 base.py[line:795] DEBUG Looking for jobs to run
+Thu, 02 Apr 2015 10:29:00 base.py[line:106] INFO Running job "downloadHistorical (trigger: cron[day_of_week='0-4', hour='10', minute='29'], next run at: 2015-04-02 10:29:00 CST)" (scheduled at 2015-04-02 10:29:00+08:00)
+Thu, 02 Apr 2015 10:29:00 base.py[line:840] DEBUG Next wakeup is due at 2015-04-03 10:29:00+08:00 (in 86399.999743 seconds)
+Thu, 02 Apr 2015 10:29:00 base.py[line:114] ERROR Job "downloadHistorical (trigger: cron[day_of_week='0-4', hour='10', minute='29'], next run at: 2015-04-03 10:29:00 CST)" raised an exception
+Traceback (most recent call last):
+  File "C:\Python34\lib\site-packages\apscheduler\executors\base.py", line 108, in run_job
+    retval = job.func(*job.args, **job.kwargs)
+  File "D:/quanttrade.git/trunk/quanttrade/bin/scheduleCMD.py", line 9, in downloadHistorical
+    y.downAllStock()
+  File "D:\quanttrade.git\trunk\quanttrade\data\YahooFinance.py", line 17, in downAllStock
+    allSymbol=self.stockDao.getAllSymbols()
+  File "D:\quanttrade.git\trunk\quanttrade\db\StockDAO.py", line 12, in getAllSymbols
+    self.__cursor.execute('select symbol,name FROM tbl_stock where source=%s',('yahoo',))
+  File "C:\Python34\lib\site-packages\mysql\connector\cursor.py", line 507, in execute
+    self._handle_result(self._connection.cmd_query(stmt))
+  File "C:\Python34\lib\site-packages\mysql\connector\connection.py", line 722, in cmd_query
+    result = self._handle_result(self._send_cmd(ServerCmd.QUERY, query))
+  File "C:\Python34\lib\site-packages\mysql\connector\connection.py", line 640, in _handle_result
+    raise errors.get_exception(packet)
+mysql.connector.errors.ProgrammingError: 1054 (42S22): Unknown column 'source' in 'where clause'
