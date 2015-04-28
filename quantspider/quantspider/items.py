@@ -8,7 +8,17 @@
 import scrapy
 
 
-class QuantspiderItem(scrapy.Item):
+class QuantSpiderItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    pass
+    symbol=scrapy.Field()
+    stockName=scrapy.Field()
+    zhangdie=scrapy.Field()
+    vol=scrapy.Field()
+    buy_val=scrapy.Field()
+    buy_rate=scrapy.Field()
+    sell_val=scrapy.Field()
+    sell_rate=scrapy.Field()
+    rasion=scrapy.Field()
+
+
