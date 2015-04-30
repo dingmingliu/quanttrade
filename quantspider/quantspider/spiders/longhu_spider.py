@@ -48,8 +48,15 @@ class AutoSpider(scrapy.Spider):
         item.sell_rate=tmp['sell_rate']
         item.rason=tmp['rason']
         salesDep=[]
-        depTr=response.xpath("//table[@id='tab2']/tbody/tr")
-        salesDep.append({'dep':dep,'buy_val','buy_rate','sell_val',sell_rate,'net amount'})
+        depTr=response.xpath("//table[@class='tab2']/tbody/tr")
+        for dep in depTr:
+            depName=dep.xpath("td")[1].xpath("a/text()").extract()
+            buy_val=dep.xpath("td")[2].xpath("span/text()").extract()
+            buy_rate=dep.xpath("td")[3].xpath("span/text()").extract()
+            sell_val=dep.xpath("td")[4].xpath("span/text()").extract()
+            sell_rate=dep.xpath("td")[5].xpath("span/text()").extract()
+            net_amount=dep.xpath("td")[6].xpath("span/text()").extract()
+            salesDep.append({'dep':depName,'buy_val':buy_val,'buy_rate':buy_rate,'sell_val':sell_val,'sell_rate':sell_rate,'net_amount':net_amount})
         return item
 
 
