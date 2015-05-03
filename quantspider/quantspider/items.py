@@ -19,6 +19,9 @@ class QuantSpiderItem(scrapy.Item):
     buy_rate=scrapy.Field()
     sell_val=scrapy.Field()
     sell_rate=scrapy.Field()
-    rasion=scrapy.Field()
-
+    reason=scrapy.Field()
+    salesDep=scrapy.Field()
+    date=scrapy.Field()
+    url=scrapy.Field()
+    depUrl=scrapy.Field()
 
