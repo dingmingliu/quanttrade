@@ -1,0 +1,1 @@
+db.lhb.ensureIndex({symbol:1,date:-1},unique=true)
